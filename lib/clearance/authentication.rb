@@ -93,7 +93,7 @@ module Clearance
 
     def user_from_cookie
       if token = cookies[:remember_token]
-        ::User.find_by_remember_token(token)
+        ::User.where(:remember_token => token).first
       end
     end
 
